@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import {data} from './the_object';
 
-
 console.log(data);
 class App extends Component {
   constructor(props){
