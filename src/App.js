@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
 import {data} from './the_object';
+import loader from './loader.gif';
 
 console.log(data);
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // items:[],
+      items:[],
+      loading:true,
       items:data,
       input: '',
       sort:''
     }
   }
-  // componentDidMount(){
-  //   fetch('https://api.coinmarketcap.com/v1/ticker/?limit=2000')
-  //   .then((response) => {
-  //     console.log(response);
-  //     return response.json();
-  //   })
-  //     .then((res) => {
-  //       this.setState({items: res});
-  //     })
-	// 	.catch(error => console.error(error));
-  // }
+  componentDidMount(){
+    this.setState.loading = true;
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=2000')
+    .then((response) => {
+      return response.json();
+    })
+      .then((res) => {
+        this.setState({
+          loading: false,
+          items: res
+        });
+      })
+		.catch(error => console.error(error));
+  }
   onChangeHandler(e){
   this.setState({
     input: e.target.value
@@ -62,6 +67,9 @@ class App extends Component {
     })};
     return (
       <div className="App">
+      
+      { this.state.loading && <div id="loader"><img src={loader} /></div> }
+        <h1>Cryptocurrency Coins Visualizing Application</h1>
         <div id = "my-filter">
         <input value={this.state.input.toLowerCase()} placeholder = "Search for your coins" id="my-input" type="text" onChange={this.onChangeHandler.bind(this)}/>
         <div id="sort-box">
