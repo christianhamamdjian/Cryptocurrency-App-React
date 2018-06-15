@@ -11,6 +11,10 @@ body {
       text-align: center;
       background:#fff;
   }
+  #coin-counter {
+      color:#fff;
+      padding: 5px 30px 20px;
+  }
   h1 {
     text-align: center;
   }

@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       items:[],
       loading:true,
-      items:data,
+      // items:data,
       input: '',
       sort:''
     }
@@ -72,6 +72,7 @@ class App extends Component {
         <h1>Cryptocurrency Coins Visualizing Application</h1>
         <div id = "my-filter">
         <input value={this.state.input.toLowerCase()} placeholder = "Search for your coins" id="my-input" type="text" onChange={this.onChangeHandler.bind(this)}/>
+        <div id = "coin-counter"> {gallery.length} Coins</div>
         <div id="sort-box">
         <button id="sort-by-name" onClick ={this.sortByName.bind(this)} >Sort By Name</button>
         <button id="sort-by-price" onClick ={this.sortByPrice.bind(this)} >Sort By Price</button>
