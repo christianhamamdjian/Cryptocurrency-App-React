@@ -3,17 +3,19 @@ import './App.css';
 import {data} from './the_object';
 import loader from './loader.gif';
 
-console.log(data);
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
       items:[],
       loading:true,
-      // items:data,
       input: '',
-      sort:''
+      filteredGallery:[]
     }
+    this.sortByName = this.sortByName.bind(this);
+    this.sortByPrice = this.sortByPrice.bind(this);
+    this.sortByRank = this.sortByRank.bind(this);
+    this.itemsFilter = this.itemsFilter.bind(this);
   }
   componentDidMount(){
     this.setState.loading = true;
@@ -24,59 +26,59 @@ class App extends Component {
       .then((res) => {
         this.setState({
           loading: false,
-          items: res
+          items: res,
+          filteredGallery:res
         });
       })
 		.catch(error => console.error(error));
   }
   onChangeHandler(e){
   this.setState({
-    input: e.target.value
+    input: e.target.value,
+    filteredGallery: this.itemsFilter(e.target.value)
+  })
+  let myInput = this.state.input;
+  this.itemsFilter(myInput);
+  }
+  itemsFilter(input){
+    return input ? this.state.items.filter(item => item.name.toLowerCase().includes(input.toLowerCase())) : this.state.items;
+  }
+  sortByName (gallery){
+    this.setState({
+      items: gallery.sort(function(a, b) {
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
+        return 0;
+      })
+      })
+  }
+  sortByPrice (gallery){
+    this.setState({
+      items: gallery.sort(function(a, b) {
+      return a.price_btc - b.price_btc;
+    })  
   })
   }
-  sortByName (){
+  sortByRank (gallery){
     this.setState({
-      sort: 'name'
+      items: gallery.sort(function(a, b) {
+      return a.rank - b.rank;
     })
-  }
-  sortByPrice (){
-    this.setState({
-      sort: 'price'
-    })
-  }
-  sortByRank (){
-    this.setState({
-      sort: 'rank'
-    })
+  })
   }
   render() {
-    let gallery = this.state.items.filter(item => this.state.input === '' || item.name.includes(this.state.input));
-
-    if(this.state.sort === 'name'){gallery.sort(function(a, b) {
-      if(a.name < b.name) return -1;
-      if(a.name > b.name) return 1;
-      return 0;
-    })};
-
-    if(this.state.sort === 'price'){gallery.sort(function(a, b) {
-      return a.price_btc - b.price_btc;
-    })};
-
-    if(this.state.sort === 'rank'){gallery.sort(function(a, b) {
-      return a.rank - b.rank;
-    })};
+    let gallery =  this.state.filteredGallery;
     return (
       <div className="App">
-      
       { this.state.loading && <div id="loader"><img src={loader} /></div> }
         <h1>Cryptocurrency Coins Visualizing Application</h1>
         <div id = "my-filter">
-        <input value={this.state.input.toLowerCase()} placeholder = "Search for your coins" id="my-input" type="text" onChange={this.onChangeHandler.bind(this)}/>
+        <input value={this.state.input} placeholder = "Search for your coins" id="my-input" type="text" onChange={this.onChangeHandler.bind(this)}/>
         <div id = "coin-counter"> {gallery.length} Coins</div>
         <div id="sort-box">
-        <button id="sort-by-name" onClick ={this.sortByName.bind(this)} >Sort By Name</button>
-        <button id="sort-by-price" onClick ={this.sortByPrice.bind(this)} >Sort By Price</button>
-        <button id="sort-by-rank" onClick ={this.sortByRank.bind(this)} >Sort By Rank</button>
+        <button id="sort-by-name" onClick ={() => this.sortByName(gallery)} >Sort By Name</button>
+        <button id="sort-by-price" onClick ={() => this.sortByPrice(gallery)} >Sort By Price</button>
+        <button id="sort-by-rank" onClick ={() => this.sortByRank(gallery)} >Sort By Rank</button>
         </div>
         </div>
         <div id="my-gallery">
