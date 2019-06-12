@@ -1,33 +1,10 @@
-ul.pagination {
-  margin-top: 0;
-  margin-bottom: 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-ul.pagination li.page-item.active a.page-link {
-  color: #445565 !important;
-  background-color: #e3e7eb !important;
-  border-color: #ced4da !important;
-}
-ul.pagination a.page-link {
-  padding: 0.75rem 1rem;
-  min-width: 3.5rem;
-  text-align: center;
-  box-shadow: none !important;
-  border-color: #ced4da !important;
-  color: #6b88a4;
-  font-weight: 900;
-  font-size: 1rem;
-}
-ul.pagination a.page-link:hover {
-  background-color: #f4f4f4;
-}
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 0.7em;
   margin: 0;
   padding: 0;
-  background-color: rgb(241, 243, 243) !important;
+  background-color: rgb(226, 226, 226) !important;
   /* background-repeat: no-repeat; */
   color: rgb(196, 196, 196);
   height: 100vh;
@@ -145,7 +122,7 @@ h2 {
   outline: none;
 }
 .my-gallery {
-  margin: 40px auto;
+  margin: 15px auto;
   width: 80%;
   display: grid;
   grid-template-columns: 30% 30% 30%;
@@ -225,6 +202,10 @@ h2 {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 2em;
+  }
+  .sort-box {
+    width: 100%;
+    display: block;
   }
 }
 @media screen and (max-width: 768px) {
