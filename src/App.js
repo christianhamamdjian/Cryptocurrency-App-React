@@ -12,7 +12,7 @@ class App extends Component {
       loading: true,
       input: "",
       currentPage: null,
-      itemsPerPage: 6,
+      itemsPerPage: 9,
       filteredCoins: []
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -165,7 +165,9 @@ class App extends Component {
               Sort By Rank
             </Button>
           </div>
-          {/* Pagination */}
+        </div>
+        {/* Pagination */}
+        <div className="pagination">
           <Pagination
             currentPage={currentPage}
             numberOfPages={numberOfPages}
