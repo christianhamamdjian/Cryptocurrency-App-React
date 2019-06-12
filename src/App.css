@@ -27,30 +27,29 @@ body {
   font-size: 0.7em;
   margin: 0;
   padding: 0;
-  background-color: #000 !important;
-  background-repeat: no-repeat;
+  background-color: rgb(241, 243, 243) !important;
+  /* background-repeat: no-repeat; */
   color: rgb(196, 196, 196);
   height: 100vh;
   width: 100vw;
 }
 .App {
-  background-color: rgba(86, 187, 255, 0.2);
   padding-bottom: 0px;
   height: 100vh;
   width: 100vw;
 }
 .bg-image {
   /* The image used */
-  position: absolute;
-  background-image: url("background.jpg");
+  /* position: absolute;
+  background-image: url("background.jpg"); */
 
   /* Add the blur effect */
-  filter: blur(2px);
-  -webkit-filter: blur(4px);
+  /* filter: blur(2px);
+  -webkit-filter: blur(4px); */
 
   /* Full height */
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -59,22 +58,26 @@ body {
   z-index: -100;
 }
 
-#loader {
+.loader {
   position: fixed;
   width: 100%;
   height: 100%;
   text-align: center;
   /* background: #fff; */
 }
-#coin-counter {
+.coin-counter {
   color: #fff;
-  padding: 5px 30px 10px;
+  background: rgba(0, 13, 87, 0.726);
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
 }
 p {
   margin: 0 !important;
 }
 .title {
-  background: rgba(0, 13, 87, 0.8);
+  padding: 10px;
+  color: rgb(175, 175, 175);
 }
 h1,
 h2 {
@@ -87,44 +90,67 @@ h2 {
   padding: 3px 5px !important;
   font-size: 12px;
 }
-#my-filter {
+.my-search {
   margin: 0px auto;
-  padding: 20px;
+  padding: 10px;
   background: rgba(0, 13, 87, 0.8);
   width: 100%;
   text-align: center;
-  border-radius: 10px;
 }
-#my-input {
-  width: 60%;
-  margin-bottom: 20px;
+.my-sorting {
+  margin: 0px auto;
+  padding: 10px;
+  background: rgba(0, 13, 87, 0.411);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.my-pagination {
+  margin: 0px auto;
+  padding: 10px;
+  background: rgba(0, 13, 87, 0.411);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.my-input {
+  width: 40%;
   outline: none;
 }
-#sort-box {
+.sort {
+  width: 100%;
+  background: rgba(4, 14, 73, 0.616);
+  text-align: center;
+}
+.sort-box {
   width: 60%;
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-gap: 4%;
   margin: 0px auto;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
 }
-#sort-by-name {
+.sort-by-name {
   font-size: 0.8em;
   outline: none;
 }
-#sort-by-price {
+.sort-by-price {
   font-size: 0.8em;
   outline: none;
 }
-#sort-by-rank {
+.sort-by-rank {
   font-size: 0.8em;
   outline: none;
 }
-#my-gallery {
+.my-gallery {
   margin: 40px auto;
   width: 80%;
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-gap: 1em;
+  justify-content: center;
 }
 .my-coin-card {
   /* border: 3px solid rgba(221, 221, 221, 0.4); */
@@ -193,7 +219,7 @@ h2 {
 }
 
 @media screen and (max-width: 1024px) {
-  #my-gallery {
+  .my-gallery {
     margin: 40px auto;
     width: 80%;
     display: grid;
@@ -202,7 +228,7 @@ h2 {
   }
 }
 @media screen and (max-width: 768px) {
-  #my-gallery {
+  .my-gallery {
     margin: 40px auto;
     width: 80%;
     display: grid;

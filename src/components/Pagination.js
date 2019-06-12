@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "reactstrap";
+import "../App.css";
 
 const Pagination = props => {
   return (
-    <div className="">
-      <div style={{ fontSize: "16px", color: "#fff" }}>
+    <div className="my-pagination">
+      <div>
         Current page: {props.currentPage + 1} / {props.numberOfPages + 1}
       </div>
       <p>

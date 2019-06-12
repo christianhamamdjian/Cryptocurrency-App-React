@@ -127,54 +127,55 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="bg-image">Hi</div>
-        {this.state.loading && (
-          <div id="loader">
-            <img src={loader} alt="" />
-          </div>
-        )}
         <h1 className="title">Cryptocurrency Coins Visualizing Application</h1>
-        <div id="my-filter">
+        <div className="my-search">
           {/* Search */}
           <input
             value={this.state.input}
-            placeholder="Search for your coins"
-            id="my-input"
+            placeholder="Search..."
+            className="my-input"
             type="text"
             onChange={this.onChangeHandler}
           />
-          <div id="coin-counter"> {filteredCoins.length} Coins</div>
-          {/* Sorting */}
-          <div id="sort-box">
+        </div>
+        {/* Counter */}
+        <div className="coin-counter"> {filteredCoins.length} Coins</div>
+        {/* Sorting */}
+        <div className="sort">
+          <div className="sort-box">
             <Button
-              id="sort-by-name"
+              className="sort-by-name"
               onClick={() => this.sortByName(filteredCoins)}
             >
               Sort By Name
             </Button>
             <Button
-              id="sort-by-price"
+              className="sort-by-price"
               onClick={() => this.sortByPrice(filteredCoins)}
             >
               Sort By Price
             </Button>
             <Button
-              id="sort-by-rank"
+              className="sort-by-rank"
               onClick={() => this.sortByRank(filteredCoins)}
             >
               Sort By Rank
             </Button>
           </div>
-          {/* Pagination */}
-          <Pagination
-            currentPage={currentPage}
-            numberOfPages={numberOfPages}
-            showPreviousPage={this.showPreviousPage}
-            showNextPage={this.showNextPage}
-          />
         </div>
-
-        <div id="my-gallery">
+        {/* Pagination */}
+        <Pagination
+          currentPage={currentPage}
+          numberOfPages={numberOfPages}
+          showPreviousPage={this.showPreviousPage}
+          showNextPage={this.showNextPage}
+        />
+        {this.state.loading && (
+          <div className="loader">
+            <img src={loader} alt="" />
+          </div>
+        )}
+        <div className="my-gallery">
           {visibleItems.map(item => (
             <div className="my-coin-card" key={item.id}>
               <h4>{item.name}</h4>
