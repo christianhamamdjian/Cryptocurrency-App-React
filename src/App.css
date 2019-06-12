@@ -58,10 +58,7 @@ body {
   background-size: cover;
   z-index: -100;
 }
-.pagination {
-  float: right;
-  margin-right: 15%;
-}
+
 #loader {
   position: fixed;
   width: 100%;
@@ -127,11 +124,11 @@ h2 {
   width: 80%;
   display: grid;
   grid-template-columns: 30% 30% 30%;
-  grid-gap: 2em;
+  grid-gap: 1em;
 }
 .my-coin-card {
   /* border: 3px solid rgba(221, 221, 221, 0.4); */
-  padding: 0px 0px 20px;
+  padding: 0px 0px 10px;
   background: rgba(0, 13, 87, 0.8);
   color: rgb(175, 175, 175);
   border-radius: 10px;

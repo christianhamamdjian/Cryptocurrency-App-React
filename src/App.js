@@ -165,9 +165,7 @@ class App extends Component {
               Sort By Rank
             </Button>
           </div>
-        </div>
-        {/* Pagination */}
-        <div className="pagination">
+          {/* Pagination */}
           <Pagination
             currentPage={currentPage}
             numberOfPages={numberOfPages}
@@ -175,6 +173,7 @@ class App extends Component {
             showNextPage={this.showNextPage}
           />
         </div>
+
         <div id="my-gallery">
           {visibleItems.map(item => (
             <div className="my-coin-card" key={item.id}>
